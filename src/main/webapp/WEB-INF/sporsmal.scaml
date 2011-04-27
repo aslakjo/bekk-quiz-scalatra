@@ -1,0 +1,15 @@
+- attributes("title") = "Hello from layout"
+
+- import no.aslakjo.bekkquiz.model.Question
+-@ val sporsmal : List[Question]
+%h1 Spørsmål
+%ul
+  - for(sp <- sporsmal)
+    %li
+      = "%s, %s".format(sp.title, sp.question)
+      - val sporsmalLink = "/sporsmal/rediger/%d".format(sp.id)
+      %a{:href => sporsmalLink} Rediger
+
+%p
+  %a{:href => "/sporsmal/nytt"} Nytt spørsmål
+

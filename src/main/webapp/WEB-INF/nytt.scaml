@@ -1,0 +1,28 @@
+- import no.aslakjo.bekkquiz.model.Question
+
+- attributes("title") = "Nytt spørsmål"
+-@ val sporsmal : Question
+
+%h1 Nytt spørsmål
+%form{:method => "post"}
+  %label{:for => "title"} Titel
+  %input{:type => "text", :id => "title", :name => "title", :value => {sporsmal.title}}
+
+  %label{:for => "sporsmal"} Spørsmål
+  %textarea{:name => "sporsmal"}><= sporsmal.question
+
+  %label{:for => "forklaring"} Forklaring
+  %textarea{:name => "forklaring"}><= sporsmal.explenation
+
+  %label{:for => "alt1"} Alternativ 1
+  %input{:type => "text", :id => "alt1", :name => "alt1", :value => {sporsmal.alternativ1}}
+  %label{:for => "alt2"} Alternativ 2
+  %input{:type => "text", :id => "alt2", :name => "alt2", :value => {sporsmal.alternativ2}}
+  %label{:for => "alt3"} Alternativ 3
+  %input{:type => "text", :id => "alt3", :name => "alt3", :value => {sporsmal.alternativ3}}
+  %label{:for => "alt4"} Alternativ 4
+  %input{:type => "text", :id => "alt4", :name => "alt4", :value => {sporsmal.alternativ4}}
+  %label{:for => "alt5"} Alternativ 5
+  %input{:type => "text", :id => "alt5", :name => "alt5", :value => {sporsmal.alternativ5}}
+
+  %input{:type => "submit", :value => "Lagre"}
