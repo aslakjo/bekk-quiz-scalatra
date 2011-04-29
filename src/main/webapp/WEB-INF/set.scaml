@@ -1,0 +1,14 @@
+- attributes("title") = "Hello from layout"
+
+- import no.aslakjo.bekkquiz.model.QuestionSet
+-@ val sporsmalSet : List[QuestionSet]
+%h1 Spørsmål sett
+%ul
+  - for(sp <- sporsmalSet)
+    %li
+      = "%s (%s)".format(sp.name, sp.questions.map(_.title).mkString(", "))
+      %a{:href => {"/gruppe/slett/%d".format(sp.id)}} Slett
+
+%p
+  %a{:href => "/gruppe/nytt"} Ny gruppe
+

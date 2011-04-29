@@ -1,0 +1,12 @@
+- attributes("title") = "Lære noe"
+
+- import no.aslakjo.bekkquiz.model.QuestionSet
+-@ val sporsmalSet : List[QuestionSet]
+%h1 Hva vil du prøve deg på
+%ul
+  - for(sp <- sporsmalSet)
+    %li
+      = "%s (%s)".format(sp.name, sp.questions.map(_.title).mkString(", "))
+      %a{:href => {"/laere/gjennom/%d".format(sp.id)}} Gjennomfør
+
+

@@ -1,0 +1,29 @@
+
+- import no.aslakjo.bekkquiz.model.{QuestionSet, Question}
+-@ val sporsmal : Question
+- attributes("title") = "Svare på %s".format(sporsmal.title)
+%h1= sporsmal.title
+%p= sporsmal.question
+
+%form{:method => "post"}
+  %p
+    %h4 Alternativer:
+    %ul
+      %li
+        = sporsmal.alternativ1
+        %input{:type => "checkbox", :name => "answer", :value => "1"}
+      %li
+        = sporsmal.alternativ2
+        %input{:type => "checkbox", :name => "answer", :value => "2"}
+      %li
+        = sporsmal.alternativ3
+        %input{:type => "checkbox", :name => "answer", :value => "3"}
+      %li
+        = sporsmal.alternativ4
+        %input{:type => "checkbox", :name => "answer", :value => "4"}
+      %li
+        = sporsmal.alternativ5
+        %input{:type => "checkbox", :name => "answer", :value => "5"}
+
+  %p
+    %input{:type => "submit", :value => "Svar"}

@@ -1,0 +1,16 @@
+%h1 Nytt sett
+-import no.aslakjo.bekkquiz.model.Question
+-@ val questions : List[Question]
+
+%form{:method => "post"}
+  %label{:for => "name"} Navn
+  %input{:id => "name", :type => "text", :name => "name"}
+
+  %label{:for => "desc"} Beskrivelse
+  %textarea{:id => "desc", :type => "text", :name => "desc"}
+
+  %select{:multiple => true, :name => "questions"}
+    - for(question <- questions)
+      %option{:value=> {question.id}}= question.title
+
+  %input{:type => "submit", :value => "Lagre"}
